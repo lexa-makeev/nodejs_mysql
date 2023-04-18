@@ -11,6 +11,10 @@ class UserService {
         });
         return user;
     }
+    async get_user() {
+        const user = await User.findAll();
+        return user;
+    }
 }
 
 module.exports = new UserService();

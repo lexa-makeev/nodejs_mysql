@@ -13,16 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api", router);
 
-app.get("/select", (req, res) => {
-    User.findAll()
-        .then((users) => {
-            res.send(users);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-});
-
 app.post("/auth", (req, res) => {
     const { email, pass } = req.body;
     const { jwt } = req.headers;

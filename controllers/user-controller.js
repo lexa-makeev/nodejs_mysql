@@ -17,5 +17,13 @@ class UserController {
             res.status(500).send("Ошибка при сохранении пользователя");
         }
     }
+    async get_user(req, res, next) {
+        try {
+            const userData = await userService.get_user();
+            res.send(userData);
+        } catch (error) {
+            res.status(500).send("Ошибка");
+        }
+    }
 }
 module.exports = new UserController();
